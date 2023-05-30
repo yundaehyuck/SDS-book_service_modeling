@@ -1,5 +1,55 @@
 # SDS-book_service_modeling
 
-samsung sds link project
+SSAFY Free domain project(SAMSUNG SDS link project)
 
-book service AI modeling code
+book service for children project
+
+AI implementation code
+
+1. FastAPI backend code
+
+automatic write book review system using chatGPT API,Naver CLOVA STT API
+> "keyword" > chatgpt > review > star point prediction > star point
+> "sound keyword" > STT > "Text keyword" > chatgpt > review > star point
+
+create story using chatGPT & NAVER CLOVA TTS API
+> "keyword" > chatgpt > story > CLOVA > TTS
+
+2. image to sketch
+
+https://github.com/aishuse/image2sketch
+
+3. star point prediction(text classification modeling)
+
+predict star point in book review
+
+how? text classification(1~5 point)
+
+4. review crawling
+
+crawling review data in aladin using Selenium
+
+10000 review data
+
+5. image captioning
+
+https://github.com/rmokady/CLIP_prefix_caption
+
+6. TTS & Voice conversion
+
+https://github.com/coqui-ai/TTS
+
+7. curse detection
+
+https://github.com/HeegyuKim/CurseFilter
+
+To block negative expressions when writing keywords
+
+8. OCR(optical character recognition)
+
+https://github.com/PaddlePaddle/PaddleOCR
+
+detect isbn code to search book
+
+
+
