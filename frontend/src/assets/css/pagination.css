@@ -1,0 +1,24 @@
+.pagebtn {
+  width: 30px;
+  height: 30px;
+  border: 1px solid var(--ae-red);
+  border-radius: 7px;
+  float: left;
+  margin-left: 5px;
+  background-color: white;
+  color: var(--ae-red);
+  cursor: pointer;
+}
+
+.pagebtn.active {
+  background-color: var(--ae-red);
+  color: white;
+  font-weight: bold;
+}
+
+.pagebtn.disabled {
+  border: 1px solid rgb(179, 179, 179);
+  background-color: lightgray;
+  color: white;
+  cursor: default;
+}
