@@ -1,0 +1,41 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: back-spring
+  labels:
+    app: back-spring
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: back-spring
+      tier: backend
+  template:
+    metadata:
+      labels:
+        app: back-spring
+        tier: backend
+    spec:
+      containers:
+        - name: back-spring
+          image: back-spring-img
+          imagePullPolicy: Never
+          ports:
+            - containerPort: 8082
+              name: back-spring
+
+---
+
+apiVersion: v1
+kind: Service
+metadata:
+  name: back-spring
+  labels:
+    app: back-spring
+spec:
+  # type: NodePort
+  ports:
+    - port: 8082
+  selector:
+    app: back-spring
+    tier: backend

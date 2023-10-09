@@ -1,0 +1,34 @@
+version: '2.2'
+services:
+  # infraaaa
+  redis:
+    image: 'redis:alpine'
+    container_name: ae-book-redis
+    expose:
+      - 6379
+    networks:
+      - ae-book_network
+
+  mariadb:
+    image: mariadb
+    container_name: ae-book-mariadb
+    ports:
+      - 3306:3306
+    environment:
+      LC_ALL: C.UTF-8
+      MARIADB_USER: ${MARIADB_USER}
+      MARIADB_PASSWORD: ${MARIADB_PASSWORD}
+      MARIADB_ROOT_PASSWORD: ${MARIADB_ROOT_PASSWORD}
+      MARIADB_DATABASE: s08p31c201
+    volumes:
+      - /home/docker/ae-book/volume-data/mariadb:/var/lib/mariadb
+    command:
+      - --character-set-server=utf8mb4
+      - --collation-server=utf8mb4_unicode_ci
+      - --lower_case_table_names=1
+    networks:
+      - ae-book_network
+
+networks:
+  ae-book_network:
+    driver: bridge

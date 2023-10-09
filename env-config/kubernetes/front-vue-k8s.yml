@@ -1,0 +1,40 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: front-vue
+  labels:
+    app: front-vue
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: front-vue
+      tier: frontend
+  template:
+    metadata:
+      labels:
+        app: front-vue
+        tier: frontend
+    spec:
+      containers:
+        - name: front-vue
+          image: front-vue-img
+          imagePullPolicy: Never
+          ports:
+            - containerPort: 3000
+              name: front-vue
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: front-vue
+  labels:
+    app: front-vue
+spec:
+  type: NodePort
+  ports:
+    - port: 3000
+  selector:
+    app: front-vue
+    tier: frontend

@@ -1,0 +1,39 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: back-fast
+  labels:
+    app: back-fast
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: back-fast
+      tier: backend
+  template:
+    metadata:
+      labels:
+        app: back-fast
+        tier: backend
+    spec:
+      containers:
+      - name: back-fast
+        image: back-fast-img
+        imagePullPolicy: Never
+        ports:
+          - containerPort: 8000
+            name: back-fast
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: back-fast
+  labels:
+    app: back-fast
+spec:
+  ports:
+    - port: 8000
+  selector:
+    app: back-fast
+    tier: backend

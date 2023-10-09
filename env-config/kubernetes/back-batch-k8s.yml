@@ -1,0 +1,40 @@
+apiVersion: batch/v1
+kind: CronJob
+metadata:
+  name: batch-cron-job
+  labels:
+    app: back-batch
+spec:
+  schedule: "0 */1 * * *"
+  jobTemplate:
+    spec:
+      template:
+        metadata:
+          labels:
+            app: back-batch
+            tier: backend
+        spec:
+          containers:
+            - name: back-batch
+              image: back-batch-img
+              imagePullPolicy: Never
+          restartPolicy: OnFailure
+  successfulJobsHistoryLimit: 5 ## 성공 잡의 히스토리를 다섯 번 남긴다.
+  failedJobsHistoryLimit: 5 ## 실패 잡의 히스토리를 다섯 번 남긴다.
+
+---
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: batch-cron-job
+  labels:
+    app: back-batch
+spec:
+  template:
+    spec:
+      containers:
+        - name: back-batch
+          image: back-batch-img
+          imagePullPolicy: Never
+      restartPolicy: OnFailure
+  backoffLimit: 4
