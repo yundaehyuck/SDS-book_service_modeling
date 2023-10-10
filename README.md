@@ -2,6 +2,10 @@
 
 ## SSAFY Free domain project(SAMSUNG SDS link project)
 
+This page is my implementation code page.
+
+You can see the project description this links['https://github.com/yundaehyuck/SDS-book_service_modeling/tree/main/guide']
+
 ### My implementation code
 
 ### 1. FastAPI backend code
