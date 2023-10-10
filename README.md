@@ -4,7 +4,9 @@
 
 This page is my implementation code page.
 
-You can see the project description this [links](https://github.com/yundaehyuck/SDS-book_service_modeling/tree/main/guide 'links')
+## You can see the project description this [links](https://github.com/yundaehyuck/SDS-book_service_modeling/tree/main/guide 'links')
+
+---
 
 ### My implementation code
 
